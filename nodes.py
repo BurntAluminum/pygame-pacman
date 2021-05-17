@@ -24,20 +24,49 @@ class NodeGroup(object):
     def setupTestNodes(self):
         nodeA = Node(4.5, 4)
         nodeB = Node(11, 4)
-        nodeC = Node(11, 10)
-        nodeD = Node(4.5, 15.5)
-        nodeE = Node(8, 15.5)
-        nodeF = Node(14, 15.5)
-        nodeG = Node(20, 13)
-        
-        nodeA.neighbors[RIGHT] = nodeB
-        nodeA.neighbors[DOWN] = nodeD
-        nodeB.neighbors[DOWN] = nodeC
-        nodeD.neighbors[RIGHT] = nodeE
-        nodeE.neighbors[RIGHT] = nodeF
-        
+        nodeC = Node(21, 4)
+        nodeD = Node(40, 4)
+        nodeE = Node(50 ,4)
+        nodeF = Node(55, 4)
+        nodeG = Node(11, 10)
+        nodeH = Node(14, 10)
+        nodeI = Node(21, 10)
+        nodeJ = Node(26, 10)
+        nodeK = Node(34, 10)
+        nodeL = Node(40, 10)
+        nodeM = Node(44, 10)
+        nodeP = Node(4.5, 15)
 
-        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG]
+        nodeA.neighbors[RIGHT] = nodeB
+        nodeA.neighbors[DOWN] = nodeP
+
+        nodeB.neighbors[RIGHT] = nodeC
+        nodeB.neighbors[DOWN] = nodeG
+
+        nodeC.neighbors[RIGHT] = nodeD
+
+        nodeD.neighbors[RIGHT] = nodeE
+
+        nodeE.neighbors[RIGHT] = nodeF
+
+        #nodeF.neighbors[] =
+
+        nodeG.neighbors[RIGHT] = nodeH
+
+        nodeH.neighbors[RIGHT] = nodeI
+
+        nodeI.neighbors[UP] = nodeC
+
+        nodeJ.neighbors[RIGHT] = nodeK
+
+        nodeK.neighbors[LEFT] = nodeJ
+
+        nodeL.neighbors[UP] = nodeD
+        nodeL.neighbors[RIGHT] = nodeM
+
+        #nodeM.neighbors[]
+
+        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeP]
 
     def render(self, screen):
         for node in self.nodeList:
