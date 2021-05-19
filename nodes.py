@@ -34,7 +34,8 @@ class NodeGroup(object):
         nodeJ = Node(26, 10)
         nodeK = Node(34, 10)
         nodeL = Node(40, 10)
-        nodeM = Node(44, 10)
+        nodeM = Node(45, 10)
+        nodeN = Node(50, 10)
         nodeP = Node(4.5, 15)
 
         nodeA.neighbors[RIGHT] = nodeB
@@ -44,29 +45,31 @@ class NodeGroup(object):
         nodeB.neighbors[DOWN] = nodeG
 
         nodeC.neighbors[RIGHT] = nodeD
+        nodeC.neighbors[DOWN] = nodeI
 
         nodeD.neighbors[RIGHT] = nodeE
+        nodeD.neighbors[DOWN] = nodeL
 
         nodeE.neighbors[RIGHT] = nodeF
-
-        #nodeF.neighbors[] =
+        nodeE.neighbors[DOWN] = nodeN
 
         nodeG.neighbors[RIGHT] = nodeH
 
         nodeH.neighbors[RIGHT] = nodeI
 
-        nodeI.neighbors[UP] = nodeC
+        #nodeI.neighbors[] =
 
         nodeJ.neighbors[RIGHT] = nodeK
 
         nodeK.neighbors[LEFT] = nodeJ
 
-        nodeL.neighbors[UP] = nodeD
         nodeL.neighbors[RIGHT] = nodeM
 
-        #nodeM.neighbors[]
+        nodeM.neighbors[RIGHT] = nodeN
 
-        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeP]
+        nodeP.neighbors[RIGHT] = nodeO
+
+        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeN, nodeP]
 
     def render(self, screen):
         for node in self.nodeList:
