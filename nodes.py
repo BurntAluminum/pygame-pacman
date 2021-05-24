@@ -36,10 +36,33 @@ class NodeGroup(object):
         nodeL = Node(40, 10)
         nodeM = Node(45, 10)
         nodeN = Node(50, 10)
-        nodeP = Node(4.5, 15)
+        nodeO = Node(4.5, 15.5)
+        nodeP = Node(8, 15.5)
+        nodeQ = Node(14, 15.5)
+        nodeR = Node(21, 15.5)
+        nodeS = Node(26, 15.5)
+        nodeT = Node(34, 15.5)
+        nodeU = Node(40, 15.5)
+        nodeV = Node(45, 15.5)
+        nodeW = Node(51.5, 15.5)
+        nodeX = Node(55, 15.5)
+        nodeY = Node(8, 21.5)
+        nodeZ = Node(14, 21.5)
+        nodeAA = Node(21, 21.5)
+        nodeAB = Node(26, 21.5)
+        nodeAC = Node(34, 21.5)
+        nodeAD = Node(40, 21.5)
+        nodeAE = Node(45, 21.5)
+        nodeAF = Node(51.5, 21.5)
+        nodeAG = Node(8, 25)
+        nodeAH = Node(14, 27)
+        nodeAI = Node(21, 27)
+        nodeAJ = Node(40, 27)
+        nodeAK = Node(45, 27)
+        nodeAL = Node(51.5, 25)
 
         nodeA.neighbors[RIGHT] = nodeB
-        nodeA.neighbors[DOWN] = nodeP
+        nodeA.neighbors[DOWN] = nodeO
 
         nodeB.neighbors[RIGHT] = nodeC
         nodeB.neighbors[DOWN] = nodeG
@@ -53,23 +76,81 @@ class NodeGroup(object):
         nodeE.neighbors[RIGHT] = nodeF
         nodeE.neighbors[DOWN] = nodeN
 
+        nodeF.neighbors[DOWN] = nodeX
+
         nodeG.neighbors[RIGHT] = nodeH
 
         nodeH.neighbors[RIGHT] = nodeI
+        nodeH.neighbors[DOWN] = nodeQ
 
-        #nodeI.neighbors[] =
+        nodeI.neighbors[UP] = nodeC
+        nodeI.neighbors[DOWN] = nodeR
+        nodeI.neighbors[LEFT] = nodeH
 
         nodeJ.neighbors[RIGHT] = nodeK
 
         nodeK.neighbors[LEFT] = nodeJ
 
+        nodeL.neighbors[DOWN] = nodeU
         nodeL.neighbors[RIGHT] = nodeM
 
         nodeM.neighbors[RIGHT] = nodeN
 
-        nodeP.neighbors[RIGHT] = nodeO
+        nodeO.neighbors[RIGHT] = nodeP
 
-        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeN, nodeP]
+        nodeP.neighbors[RIGHT] = nodeQ
+
+        nodeQ.neighbors[UP] = nodeH
+
+        nodeR.neighbors[UP] = nodeI
+
+        nodeS.neighbors[UP] = nodeJ
+        nodeS.neighbors[LEFT] = nodeR
+        nodeS.neighbors[DOWN] = nodeAB
+
+        nodeT.neighbors[UP] = nodeK
+        nodeT.neighbors[RIGHT] = nodeU
+
+        nodeU.neighbors[UP] = nodeL
+        nodeU.neighbors[LEFT] = nodeU
+
+        nodeV.neighbors[UP] = nodeM
+        nodeV.neighbors[RIGHT] = nodeW
+        
+        nodeW.neighbors[LEFT] = nodeV
+        nodeW.neighbors[RIGHT] = nodeX
+
+        nodeX.neighbors[UP] = nodeF
+
+        nodeY.neighbors[UP] = nodeP
+
+        nodeZ.neighbors[LEFT] = nodeY
+
+        nodeAA.neighbors[RIGHT] = nodeAB
+
+        nodeAB.neighbors[RIGHT] = nodeAC
+
+        nodeAC.neighbors[RIGHT] = nodeAD
+
+        nodeAD.neighbors[DOWN] = nodeAJ
+
+        nodeAE.neighbors[RIGHT] = nodeAF
+        
+        nodeAF.neighbors[UP] = nodeW
+
+        nodeAG.neighbors[UP] = nodeY
+        
+        nodeAH.neighbors[UP] = nodeZ
+
+        nodeAI.neighbors[UP] = nodeAA
+        
+        nodeAJ.neighbors[UP] = nodeAD
+
+        nodeAK.neighbors[UP] = nodeAE
+
+        nodeAL.neighbors[UP] = nodeAF
+
+        self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeN, nodeO, nodeP, nodeQ, nodeR, nodeS, nodeT, nodeU, nodeV, nodeW, nodeX, nodeY, nodeZ, nodeAA, nodeAB, nodeAC, nodeAD, nodeAE, nodeAF, nodeAG, nodeAH, nodeAI, nodeAJ, nodeAK, nodeAL]
 
     def render(self, screen):
         for node in self.nodeList:
