@@ -4,21 +4,24 @@ from vector import Vector2
 from constants import *
 
 class Pacman(object):
-    def __init__(self):
+    def __init__(self, nodes):
         self.name = "pacman"
-        self.position = Vector2(200, 400)
         self.direction = STOP
         self.speed = 2
         self.radius = 10
         self.color = YELLOW
+        self.nodes = nodes
+        self.node = nodes.nodeList[0]
+        self.setPosition()
+        self.keyDown = False
+
+    def setPosition(self):
+        self.position = self.node.position.copy()
 
     def update(self, dt):
-        self.position += self.direction*self.speed
         direction = self.getValidKey()
         if direction:
             self.moveByKey(direction)
-        else:
-            self.direction = STOP
 
     def getValidKey(self):
         key_pressed = pygame.key.get_pressed()
@@ -33,7 +36,12 @@ class Pacman(object):
         return None
 
     def moveByKey(self, direction):
-        self.direction = direction
+        if self.node.neighbors[direction] is not None:
+            if not self.keyDown:
+                self.direction = direction
+                self.node = self.node.neighbors[self.direction]
+                self.setPosition()
+                self.keyDown = True
 
     def render(self, screen):
         p = self.position.asInt()

@@ -67,7 +67,7 @@ class NodeGroup(object):
 
         nodeM.neighbors[RIGHT] = nodeN
 
-        nodeP.neighbors[RIGHT] = nodeO
+        # nodeP.neighbors[RIGHT] = nodeO
 
         self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM, nodeN, nodeP]
 

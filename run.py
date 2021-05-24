@@ -20,7 +20,7 @@ class GameController(object):
     def startGame(self):
         self.nodes = NodeGroup()
         self.nodes.setupTestNodes()
-        self.pacman = Pacman()
+        self.pacman = Pacman(self.nodes)
 
     def update(self):
         dt = self.clock.tick(FPS)
@@ -32,6 +32,8 @@ class GameController(object):
         for event in pygame.event.get():
             if event.type == QUIT:
                 exit()
+            elif event.type == KEYUP:
+                self.pacman.keyDown = False
 
     def render(self):
         self.screen.blit(LEVEL, (0, 0))
