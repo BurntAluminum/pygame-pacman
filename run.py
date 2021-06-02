@@ -32,8 +32,15 @@ class GameController(object):
         for event in pygame.event.get():
             if event.type == QUIT:
                 exit()
-            elif event.type == KEYUP:
-                self.pacman.keyDown = False
+
+    def overshotTarget(self):
+        if self.target is not None:
+            vec1 = self.target.position - self.node.position
+            vec2 = self.position - self.node.position
+            node2Target = vec1.magnitudeSquared()
+            node2Self = vec2.magnitudeSquared()
+            return node2Self >= node2Target
+        return False
 
     def render(self):
         self.screen.blit(LEVEL, (0, 0))
