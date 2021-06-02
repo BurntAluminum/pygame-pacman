@@ -33,6 +33,9 @@ class GameController(object):
             if event.type == QUIT:
                 exit()
 
+            elif event.type == KEYUP:
+                self.pacman.keyDown = False
+
     def overshotTarget(self):
         if self.target is not None:
             vec1 = self.target.position - self.node.position
