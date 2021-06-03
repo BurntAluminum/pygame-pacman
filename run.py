@@ -14,8 +14,8 @@ class GameController(object):
 
     def setBackground(self):
         self.screen.blit(LEVEL, (0, 0))
-        # self.background = pygame.surface.Surface(SCREENSIZE).convert()
-        # self.background.fill(BLACK)
+        self.background = pygame.surface.Surface(SCREENSIZE).convert()
+        self.background.fill(BLACK)
 
     def startGame(self):
         self.nodes = NodeGroup()
@@ -33,9 +33,6 @@ class GameController(object):
             if event.type == QUIT:
                 exit()
 
-            elif event.type == KEYUP:
-                self.pacman.keyDown = False
-
     def overshotTarget(self):
         if self.target is not None:
             vec1 = self.target.position - self.node.position
@@ -46,7 +43,7 @@ class GameController(object):
         return False
 
     def render(self):
-        self.screen.blit(LEVEL, (0, 0))
+        self.screen.blit(self.background, (0, 0))
         self.nodes.render(self.screen)
         self.pacman.render(self.screen)
         pygame.display.update()
